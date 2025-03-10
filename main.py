@@ -24,13 +24,14 @@ def passwordchecker(password):
     else:
         st.warning("🚫Include at least one number.")
 
-    if re.search(r"[!@#$%^&*()_+-={};':\"\\|,.<>/?]", password):
+    if re.search(r"[!@#$%^&*/?<>]", password):
         score += 1
     else:
         st.warning("🚫Include at least one special character.")
 
     if score == 4 :
         st.success("✔️Password is strong")
+        st.balloons()
     elif score ==3 :
         st.info("⚠️Password is moderately strong, could be stronger")
     else:
